@@ -4,53 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logify</title>
-  
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="sidebar">
-
     <div class="logo-container">
       <span class="logo">Logify</span>
     </div>
     <div class="navigator">
-
       <nav class="nav-list">
-        <button class="nav-item" id="nav-home">
+        <button class="nav-item is-active" id="nav-home">
           <span class="nav-icon">🏠</span>
           <span class="nav-text">Головна</span>
         </button>
-
         <button class="nav-item" id="nav-search">
           <span class="nav-icon">🔍</span>
           <span class="nav-text">Пошук</span>
         </button>
-
         <button class="nav-item" id="nav-genres">
           <span class="nav-icon">🎵</span>
           <span class="nav-text">Жанри</span>
         </button>
-
         <button class="nav-item" id="nav-top-music">
           <span class="nav-icon">🔥</span>
           <span class="nav-text">Топ музики</span>
         </button>
-
         <button class="nav-item" id="nav-liked">
           <span class="nav-icon">❤️</span>
           <span class="nav-text">Вподобані</span>
         </button>
       </nav>
     </div>
-    
   </header>
-  <main>
 
+  <main class="main-wrapper">
+    <div class="top-header">
+      <div class="search-bar">
+        <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Артист, трек або жанр">
+      </div>
+      <button class="filter-btn" id="toggleGenresBtn">
+        <svg class="nav-icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+        <span>Фільтр</span>
+      </button>
+    </div>
+
+    <section class="hero-banner">
+      <div class="hero-content">
+        <p class="hero-subtitle">Музичний каталог</p>
+        <h1 class="hero-title">Твій звук на сьогодні</h1>
+      </div>
+      <div class="equalizer-bars" id="heroEqualizer">
+        <div class="eq-bar" style="height: 24px;"></div>
+        <div class="eq-bar" style="height: 75px;"></div>
+        <div class="eq-bar" style="height: 45px;"></div>
+        <div class="eq-bar" style="height: 90px;"></div>
+        <div class="eq-bar" style="height: 55px;"></div>
+        <div class="eq-bar" style="height: 75px;"></div>
+        <div class="eq-bar" style="height: 26px;"></div>
+      </div>
+    </section>
+
+    <div class="genres-row" id="genresRow">
+      <button class="active">Усі</button>
+      <button>Рок</button>
+      <button>Хіп-хоп</button>
+      div class="section-header">
+      <h2 class="section-title" id="resultsInfo">Топ музики</h2>
+      <button class="show-all-link" id="showAllBtn">Показати все</button>
+    </div>
+
+    <div class="tracks-list" id="tracksList">
+      <div class="track-item playing">
+        <span class="track-number">01</span>
+        <div class="track-cover"></div>
+        <div class="track-info">
+          <h3 class="track-title">Iron pulse</h3>
+          <p class="track-artist">Northline</p>
+        </div>
+        <span class="track-genre">Рок</span>
+        <span class="track-duration">3:42</span>
+      </div>
+      <div class="track-item">
+        <span class="track-number">02</span>
+        <div class="track-cover"></div>
+        <div class="track-info">
+          <h3 class="track-title">Нічна траса</h3>
+          <p class="track-artist">Bass Garage</p>
+        </div>
+        <span class="track-genre">Електроніка</span>
+     <button>Електроніка</button>
+      <button>Метал</button>
+    </div>
+
+    <   <span class="track-duration">4:05</span>
+      </div>
+      <div class="track-item">
+        <span class="track-number">03</span>
+        <div class="track-cover"></div>
+        <div class="track-info">
+          <h3 class="track-title">Concrete king</h3>
+          <p class="track-artist">Dark Alloy</p>
+        </div>
+        <span class="track-genre">Хіп-хоп</span>
+        <span class="track-duration">2:58</span>
+      </div>
+      <div class="track-item">
+        <span class="track-number">04</span>
+        <div class="track-cover"></div>
+        <div class="track-info">
+          <h3 class="track-title">Steel rain</h3>
+          <p class="track-artist">Forge</p>
+        </div>
+        <span class="track-genre">Метал</span>
+        <span class="track-duration">5:11</span>
+      </div>
+    </div>
   </main>
-<footer class="player-footer">
+
+  <footer class="player-footer">
     <div class="progress-bar-container">
-      <div class="progress-bar-fill"></div>
+      <div class="progress-bar-fill" style="width: 38%;"></div>
     </div>
 
     <div class="track-info">
@@ -61,25 +138,19 @@
       </div>
     </div>
 
-
     <div class="player-controls">
-
       <button class="control-btn" title="Перемішати">
         <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
       </button>
-
       <button class="control-btn" title="Попередній трек">
         <svg viewBox="0 0 24 24"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
       </button>
-
       <button class="play-btn" title="Відтворити">
         <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       </button>
-
       <button class="control-btn" title="Наступний трек">
         <svg viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
       </button>
-
       <button class="control-btn" title="Повтор">
         <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
       </button>
@@ -89,11 +160,9 @@
       <button class="control-btn" title="Черга відтворення">
         <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
       </button>
-
       <button class="control-btn" title="Гучність">
         <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
       </button>
-
       <div class="volume-slider">
         <div class="volume-fill"></div>
       </div>
@@ -101,5 +170,3 @@
   </footer>
 </body>
 </html>
-
-
